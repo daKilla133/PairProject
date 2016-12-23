@@ -19,6 +19,7 @@ public class Main {
 	}
 	private void init() {
 		 win = new Window(800, 600, "3DTerrain");
+		 win.addKeyListener(new Action());
 //		 Cube rect = new Cube();
 //		 frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
 		 c = new CoordinateSystem3D(win);
@@ -26,17 +27,16 @@ public class Main {
 	public void run()
 	{
 		init();
-		c.create3DSpace(win);
-		/*while(true)
+		while(true)
 		{
 //			frame.render();
-			
+			c.create3DSpace(win);	
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}*/
+		}
 	}
 	private class Action implements ActionListener, KeyListener
 	{
@@ -46,12 +46,16 @@ public class Main {
 			switch(key)
 			{
 			case KeyEvent.VK_W:
+				System.out.println("Foward");
 				break;
 			case KeyEvent.VK_S:
+				System.out.println("Backwards");
 				break;
 			case KeyEvent.VK_A:
+				System.out.println("Left");
 				break;
 			case KeyEvent.VK_D:
+				System.out.println("Right");
 				break;
 			}
 		}
