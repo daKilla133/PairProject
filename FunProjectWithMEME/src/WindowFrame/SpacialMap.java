@@ -1,11 +1,11 @@
 package WindowFrame;
-import Geometry.Point3DFloat;
+import Geometry.Vec3;
 import Geometry.CoordinateSystem3D;
 
 public class SpacialMap {
 	CoordinateSystem3D c;
-	private Point3DFloat world;
-	private Point3DFloat player;
+	private Vec3 world;
+	private Vec3 player;
 	public SpacialMap(Window win)
 	{
 	}
