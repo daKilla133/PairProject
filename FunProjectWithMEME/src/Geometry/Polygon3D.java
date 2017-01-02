@@ -1,18 +1,19 @@
 package Geometry;
 
+import java.awt.Graphics2D;
 import java.io.Serializable;
 
 public class Polygon3D implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	public Point3D[] zpoints;
-	public Point3D[] ypoints;
-	public Point3D[] xpoints;
+	public Vec3[] zpoints;
+	public Vec3[] ypoints;
+	public Vec3[] xpoints;
 	private int zIndex = 0;
 	private int yIndex = 0;
 	private int xIndex = 0;
 
-	public void addPoint(Point3D x, Point3D y, Point3D z)
+	public void addPoint(Vec3 x, Vec3 y, Vec3 z)
 	{
 		zpoints[zIndex] = z;
 		zIndex++;
@@ -21,7 +22,7 @@ public class Polygon3D implements Serializable{
 		xpoints[xIndex] = x;
 		xIndex++;
 	}
-	public void addArrayCoordinates(Point3D[] x, Point3D[] y, Point3D[] z)
+	public void addArrayCoordinates(Vec3[] x, Vec3[] y, Vec3[] z)
 	{
 		for(int i = xIndex, j = yIndex; i < xIndex + x.length && j < yIndex + y.length; i++, j++)
 		{
@@ -36,5 +37,12 @@ public class Polygon3D implements Serializable{
 		yIndex += y.length-1;
 		zIndex += z.length-1;
 	}
-	
+	public void render(Graphics2D g)
+	{
+		for(int i = 0; i < zIndex; i ++)
+		{
+//			g.drawLine(xpoints[xIndex], xpoints[xIndex-1], x2, y2);
+			
+		}
+	}
 }
