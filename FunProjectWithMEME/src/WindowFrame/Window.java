@@ -1,10 +1,9 @@
 package WindowFrame;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -26,12 +25,10 @@ public class Window extends JFrame{
 		setSize(width, height);
 		setTitle(title);
 		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-		
+
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	public Graphics2D getGraphics()
-	{	return (Graphics2D) screen.getGraphics();	}
 	public BufferedImage getBufferedImage()
 	{	return screen;	}
 	

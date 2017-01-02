@@ -1,5 +1,7 @@
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import Geometry.*;
 import WindowFrame.Window;
@@ -17,6 +19,8 @@ public class Main {
 	
 	private void init() {
 		 GlobalScope.mainWindow = new Window(800, 600, "3DTerrain");
+		 GlobalScope.mainWindow.createBufferStrategy(4);
+		 Window.index++;
 //		 win.addKeyListener(new Action());
 //		 Cube rect = new Cube();
 //		 frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
@@ -25,17 +29,16 @@ public class Main {
 	public void run()
 	{
 		init();
+
+	    BufferStrategy bs = GlobalScope.mainWindow.getBufferStrategy();
 		while(true)
 		{
-		    BufferStrategy bs = GlobalScope.mainWindow.getBufferStrategy();
-            if(bs == null){
-            	GlobalScope.mainWindow.createBufferStrategy(4);
-                return;
-            }
-			c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
-			
+//			c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
+            BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
+            for(int i = 0; i < 50; i++)
+            	img.setRGB(i, i, Color.blue.getRGB());
             Graphics2D g = (Graphics2D)bs.getDrawGraphics();
-            g.drawImage(GlobalScope.mainWindow.getBufferedImage(), 0, 0,  GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), null);
+            g.drawImage(img, 0, 0,  GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), null);
             g.dispose();
             bs.show();
 
