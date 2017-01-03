@@ -1,6 +1,7 @@
 package Geometry;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Triangle {
@@ -19,15 +20,21 @@ public class Triangle {
 	
 	public Point3D getZ()
 	{	return z;	}
-	public BufferedImage render(BufferedImage img)
+	public void render(Graphics g)
 	{
-		BufferedImage newImg = img;
-		boolean exit = true;
-		for(double i = x.getX(); i < x.getY(); i++)
-		{
-			newImg.setRGB(arg0, arg1, arg2);
-			exit = false;
-		}
-		return newImg;
+		double xp1 = x.getX() / x.getZ();
+		double yp1 = x.getY() / x.getZ();
+		double xp2 = y.getX() / y.getZ();
+		double yp2 = y.getY() / y.getZ();
+		double xp3 = z.getX() / z.getZ();
+		double yp3 = z.getY() / z.getZ();
+
+		int xx = (int)(xp1 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
+		int yy = (int)(yp1 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
+		int xx2 = (int)(xp2 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
+		int yy2 = (int)(yp2 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
+		int xx3 = (int)(xp3 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
+		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
+		g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx, yy, xx2, yy2);
 	}
 }
