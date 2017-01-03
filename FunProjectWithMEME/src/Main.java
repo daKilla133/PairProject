@@ -9,40 +9,36 @@ import WindowFrame.Window;
 import Utils.GlobalScope;
 
 public class Main {
-//	WireFrame frame;
+	//	WireFrame frame;
 	private CoordinateSystem3D c;
 	public static void main(String[] args)
 	{
 		Main m = new Main();
 		m.run();
 	}
-	
+
 	private void init() {
-		 GlobalScope.mainWindow = new Window(800, 600, "3DTerrain");
-		 GlobalScope.mainWindow.createBufferStrategy(4);
-		 Window.index++;
-//		 win.addKeyListener(new Action());
-//		 Cube rect = new Cube();
-//		 frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
-		 c = new CoordinateSystem3D();
+		GlobalScope.mainWindow = new Window(800, 600, "3DTerrain");
+		GlobalScope.mainWindow.createBufferStrategy(4);
+		Window.index++;
+		//win.addKeyListener(new Action());
+		//Cube rect = new Cube();
+		//frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
+		c = new CoordinateSystem3D();
 	}
 	public void run()
 	{
 		init();
 
-	    BufferStrategy bs = GlobalScope.mainWindow.getBufferStrategy();
 		while(true)
 		{
-//			c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
-            BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
-            for(int i = 0; i < 50; i++)
-            	img.setRGB(i, i, Color.blue.getRGB());
-            Graphics2D g = (Graphics2D)bs.getDrawGraphics();
-            g.drawImage(img, 0, 0,  GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), null);
-            g.dispose();
-            bs.show();
+			//	c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
+			BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
+			
+			Graphics2D g = (Graphics2D)GlobalScope.mainWindow.getGraphics();
+			g.drawImage(img, 0, 0,  GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), null);
 
-            try {
+			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
