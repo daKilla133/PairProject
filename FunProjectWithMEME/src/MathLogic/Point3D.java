@@ -1,4 +1,4 @@
-package Geometry;
+package MathLogic;
 
 import java.awt.geom.Point2D;
 

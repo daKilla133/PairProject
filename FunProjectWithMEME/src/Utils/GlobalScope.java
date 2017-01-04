@@ -2,7 +2,7 @@ package Utils;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-import Geometry.Vec3;
+import MathLogic.Vec3;
 import WindowFrame.Camera;
 import WindowFrame.Window;
 

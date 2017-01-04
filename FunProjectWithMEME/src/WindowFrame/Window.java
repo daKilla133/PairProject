@@ -1,7 +1,9 @@
 package WindowFrame;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -16,6 +18,7 @@ public class Window extends JFrame{
 		setTitle(title);
 		screen = new BufferedImage(size.width, size.height, BufferedImage.TYPE_4BYTE_ABGR);
 		
+		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
@@ -25,7 +28,9 @@ public class Window extends JFrame{
 		setSize(width, height);
 		setTitle(title);
 		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+		screen.setRGB(600, 600, Color.blue.getRGB());
 
+		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

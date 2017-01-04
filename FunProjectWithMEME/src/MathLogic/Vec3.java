@@ -1,7 +1,6 @@
-package Geometry;
+package MathLogic;
 
 import java.io.Serializable;
-import MathLogic.Math3D;
 
 public class Vec3 extends Point3D implements Serializable{
 	private static final long serialVersionUID = 1L;

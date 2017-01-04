@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import Geometry.Vec3;
+import MathLogic.Vec3;
 import Utils.GlobalScope;
 
 public class Camera implements KeyListener, MouseMotionListener, MouseListener

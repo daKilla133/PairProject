@@ -3,6 +3,8 @@ package Geometry;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import MathLogic.Vec3;
+
 public class Polygon3D implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

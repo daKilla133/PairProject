@@ -1,6 +1,5 @@
 package MathLogic;
 
-import Geometry.Vec3;
 import Utils.GlobalScope;
 
 public class Math3D {

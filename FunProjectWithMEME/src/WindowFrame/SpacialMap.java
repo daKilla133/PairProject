@@ -1,6 +1,6 @@
 package WindowFrame;
-import Geometry.Vec3;
 import Geometry.CoordinateSystem3D;
+import MathLogic.Vec3;
 
 public class SpacialMap {
 	CoordinateSystem3D c;
