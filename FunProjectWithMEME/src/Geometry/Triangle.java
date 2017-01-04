@@ -2,7 +2,6 @@ package Geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
 public class Triangle {
 	private Point3D x, y, z; 
@@ -28,13 +27,14 @@ public class Triangle {
 		double yp2 = y.getY() / y.getZ();
 		double xp3 = z.getX() / z.getZ();
 		double yp3 = z.getY() / z.getZ();
-
+		
 		int xx = (int)(xp1 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy = (int)(yp1 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		int xx2 = (int)(xp2 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy2 = (int)(yp2 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		int xx3 = (int)(xp3 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
-		g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx, yy, xx2, yy2);
+		g.setColor(Color.blue);
+		g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx2, yy2, xx3, yy3);g.drawLine(xx, yy, xx3, yy3);
 	}
 }

@@ -1,7 +1,12 @@
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+
+import javax.swing.JFrame;
+
+
 //import java.awt.image.DataBufferInt;
 import Geometry.*;
 import WindowFrame.Window;
