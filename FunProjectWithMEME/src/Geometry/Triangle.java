@@ -40,8 +40,6 @@ public class Triangle {
 		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		
 		g.setColor(Color.blue);
-		g.drawLine(xx, yy, xx2, yy2);
-		g.drawLine(xx2, yy2, xx3, yy3);
-		g.drawLine(xx3, yy3, xx, yy);
+		g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx2, yy2, xx3, yy3);g.drawLine(xx3, yy3, xx, yy);
 	}
 }
