@@ -1,8 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+
 
 //import java.awt.image.DataBufferInt;
 import Geometry.*;
@@ -22,7 +24,7 @@ public class Main {
 
 	private void init() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		GlobalScope.mainWindow = new Window(screenSize, "3DTerrain");
+		GlobalScope.mainWindow = new Window(600, 600, "3DTerrain");
 		GlobalScope.mainWindow.createBufferStrategy(4);
 		Window.index++;
 		//win.addKeyListener(new Action());
@@ -38,12 +40,12 @@ public class Main {
 		
 		while(true)
 		{
+		
 			imgGraphics.setColor(Color.BLACK);
-			imgGraphics.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+//			imgGraphics.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
 			//	c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
 			Triangle triangle = new Triangle(new Vec3(1,1,2), new Vec3(2,2,5), new Vec3(4,4,4));
-			
-			triangle.render(imgGraphics);
+			triangle.render(imgGraphics, new Rectangle(50, 50, 300, 300));
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

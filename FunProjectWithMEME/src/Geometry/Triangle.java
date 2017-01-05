@@ -2,35 +2,37 @@ package Geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
-import MathLogic.Point3D;
+import MathLogic.Vec3;
+import Utils.GlobalScope;
 
 public class Triangle {
-	private Point3D x, y, z; 
-	public Triangle(Point3D x, Point3D y, Point3D z)
+	private Vec3 x, y, z; 
+	public Triangle(Vec3 x, Vec3 y, Vec3 z)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;	
 	}
-	public Point3D getX()
+	public Vec3 getX()
 	{	return x;	}
 	
-	public Point3D getY()
+	public Vec3 getY()
 	{	return y;	}
 	
-	public Point3D getZ()
+	public Vec3 getZ()
 	{	return z;	}
-	public void render(Graphics g)
+	public void render(Graphics g, Rectangle c)
 	{
+		g.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
 		double xp1 = x.getX() / x.getZ();
 		double yp1 = x.getY() / x.getZ();
 		double xp2 = y.getX() / y.getZ();
 		double yp2 = y.getY() / y.getZ();
 		double xp3 = z.getX() / z.getZ();
 		double yp3 = z.getY() / z.getZ();
-		if(g.getClip() == null)
-			g.clipRect(50, 0, 1000, 200);
+		g.setClip(c);
 			
 		int xx = (int)(xp1 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy = (int)(yp1 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
@@ -38,8 +40,7 @@ public class Triangle {
 		int yy2 = (int)(yp2 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		int xx3 = (int)(xp3 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
-		
 		g.setColor(Color.blue);
-		g.drawLine(xx, yy, xx2, yy2);g.drawLine(xx2, yy2, xx3, yy3);g.drawLine(xx3, yy3, xx, yy);
+		g.drawPolygon(arg0);
 	}
 }

@@ -28,8 +28,7 @@ public class Window extends JFrame{
 		setSize(width, height);
 		setTitle(title);
 		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-		screen.setRGB(600, 600, Color.blue.getRGB());
-
+	
 		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
 		setVisible(true);
