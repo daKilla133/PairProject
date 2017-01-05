@@ -44,8 +44,9 @@ public class Main {
 			imgGraphics.setColor(Color.BLACK);
 //			imgGraphics.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
 			//	c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
-			Triangle triangle = new Triangle(new Vec3(1,1,2), new Vec3(2,2,5), new Vec3(4,4,4));
+			Triangle triangle = new Triangle(new Vec3(), new Vec3(2,2,5), new Vec3(4,4,4));
 			triangle.render(imgGraphics, new Rectangle(50, 50, 300, 300));
+			
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

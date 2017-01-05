@@ -33,14 +33,14 @@ public class Triangle {
 		double xp3 = z.getX() / z.getZ();
 		double yp3 = z.getY() / z.getZ();
 		g.setClip(c);
-			
+		
 		int xx = (int)(xp1 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy = (int)(yp1 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		int xx2 = (int)(xp2 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy2 = (int)(yp2 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 		int xx3 = (int)(xp3 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
 		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
+		
 		g.setColor(Color.blue);
-		g.drawPolygon(arg0);
 	}
 }
