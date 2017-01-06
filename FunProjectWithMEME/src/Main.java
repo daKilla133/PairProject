@@ -1,9 +1,11 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+
 
 
 //import java.awt.image.DataBufferInt;
@@ -36,17 +38,25 @@ public class Main {
 	{
 		init();
 		BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
-		Graphics imgGraphics = img.getGraphics();
+		Graphics2D imgGraphics = (Graphics2D)img.getGraphics();
 		
 		while(true)
 		{
-		
 			imgGraphics.setColor(Color.BLACK);
 //			imgGraphics.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
 			//	c.create3DSpace(GlobalScope.mainWindow.getGraphics());	
+			imgGraphics.fillRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+			imgGraphics.setColor(Color.white);
+//			imgGraphics.draw
 			Triangle triangle = new Triangle(new Vec3(), new Vec3(2,2,5), new Vec3(4,4,4));
-			triangle.render(imgGraphics, new Rectangle(50, 50, 300, 300));
-			
+			for(int y = 0; y < 600; y += 50){
+				for(int x = 0; x < 600; x += 50)
+//					imgGraphics.drawRect(x, y, 50, 50);
+					triangle.render(imgGraphics, new Rectangle(x, y, 50, 50));
+			}
+//			imgGraphics.rotate(Math.PI/3);
+			imgGraphics.rotate(0, 0, Math.PI/3);
+//			GlobalScope.center.Rotate(GlobalScope.center, 60, 0, 0);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

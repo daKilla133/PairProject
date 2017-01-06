@@ -1,5 +1,5 @@
 
-public class RandomGraphics {
+public class RandomNoise {
 
 	public float octavedNoise(float x, float y) {
 		return
