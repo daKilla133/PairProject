@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = 1L;
-	public static int index;
+	public static float time;
 	private BufferedImage screen;
 	public Window(Dimension size, String title)
 	{
