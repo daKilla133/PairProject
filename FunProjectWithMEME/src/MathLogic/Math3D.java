@@ -6,9 +6,9 @@ public class Math3D
 {
 	public static void Rotate(Vec3 point, float yaw, float pitch, float roll)
 	{
-		float x = point.x;
-		float y = point.y;
-		float z = point.z;
+		float x = (float)point.getX();
+		float y = (float)point.getY();
+		float z = (float)point.getZ();
 		
 		float finalx = (x * (float)(Math.cos(yaw)) + 
 				(z * (float)(Math.sin(yaw))));
