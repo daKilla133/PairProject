@@ -38,23 +38,23 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 		GlobalScope.inputLock.lock();
 		if(k.getKeyCode() == KeyEvent.VK_A)
 		{
-			Vec3 direction = Vec3.eulerConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
+			Vec3 direction = Vec3.matConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
 			pos.setLocation(pos.getX()+direction.getX(), pos.getY()+direction.getY(), pos.getZ()+direction.getZ());
 		}
 		if(k.getKeyCode() == KeyEvent.VK_D)
 		{
-			Vec3 direction = Vec3.eulerConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
+			Vec3 direction = Vec3.matConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
 			pos.setLocation(pos.getX()-direction.getX(), pos.getY()-direction.getY(), pos.getZ()-direction.getZ());
 
 		}
 		if(k.getKeyCode() == KeyEvent.VK_W)
 		{
-			Vec3 direction =  Vec3.eulerConversion(yaw, pitch, roll, speed);
+			Vec3 direction =  Vec3.matConversion(yaw, pitch, roll, speed);
 			pos.setLocation(pos.getX()+direction.getX(), pos.getY()+direction.getY(), pos.getZ()+direction.getZ());
 		}
 		if(k.getKeyCode() == KeyEvent.VK_S)
 		{
-			Vec3 direction = Vec3.eulerConversion(yaw, pitch, roll, speed);
+			Vec3 direction = Vec3.matConversion(yaw, pitch, roll, speed);
 			pos.setLocation(pos.getX()-direction.getX(), pos.getY()-direction.getY(), pos.getZ()-direction.getZ());
 		}
 

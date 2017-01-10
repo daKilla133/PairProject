@@ -12,4 +12,6 @@ public class GlobalScope {
 	public static ReentrantLock inputLock = new ReentrantLock();
 	public static Camera camera = new Camera();
 	public static Vec3 center = new Vec3(0, 0, 0);
+	public static final int MAX_W = 600;
+	public static final int MAX_H = 600;
 }
