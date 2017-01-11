@@ -19,6 +19,7 @@ public class Graphics3D {
 	public void XRotate(float theta)
 	{
 		Math3D.Rotate(GlobalScope.center, theta, 0, 0);
+		getGr().drawImage(bf.getImg(), 0, 0, bf.getImg().getWidth(), bf.getImg().getHeight(), null);
 	}
 	public void YRotate(float theta)
 	{

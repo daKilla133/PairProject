@@ -19,6 +19,8 @@ public class Window extends JFrame{
 		
 		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
+		
+		setResizable(false);
 		setVisible(true);
 	}
 	public Window(int width, int height, String title)
@@ -30,6 +32,8 @@ public class Window extends JFrame{
 	
 		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
+		
+		setResizable(false);
 		setVisible(true);
 	}
 	public BufferedImage getBufferedImage()
@@ -40,10 +44,15 @@ public class Window extends JFrame{
 		if(full)
 		{
 			setExtendedState(JFrame.MAXIMIZED_BOTH); 
-			setUndecorated(true);
+			screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+			this.setContentPane(new JLabel(new ImageIcon(screen)));
 		}
 		else
-			setUndecorated(false);
+		{
+			setExtendedState(JFrame.NORMAL);
+			screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+			this.setContentPane(new JLabel(new ImageIcon(screen)));
+		}
 	}
 	
 }
