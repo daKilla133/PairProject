@@ -74,7 +74,7 @@ public class Vec3 extends Point3D implements Serializable{
 		return new Vec3(x * val, y * val, z * val);
 	}
 	
-	public static Vec3 eulerConversion(float yaw, float pitch, float roll, float size)
+	public static Vec3 matConversion(float yaw, float pitch, float roll, float size)
 	{
 		float xV = -(float)(Math.sin(yaw) * Math.cos(pitch));
 		float zV = (float)(Math.cos(pitch) * Math.cos(yaw));
@@ -94,9 +94,10 @@ public class Vec3 extends Point3D implements Serializable{
 		z += point.z;
 	}
 
+	public void setZ(float z) 
+	{	this.z = z;	}
 	public String toString()
 	{
 		return "X: " + x + " Y: " + y + " Z: " + z;
 	}
-	
 }
