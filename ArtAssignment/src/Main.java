@@ -28,6 +28,8 @@ public class Main {
 		GlobalScope.mainWindow.addKeyListener(GlobalScope.camera);
 		GlobalScope.mainWindow.addMouseListener(GlobalScope.camera);
 		
+		GlobalScope.toolbar = new Window(300, 300, "Toolbar");
+		GlobalScope.toolbar.setLocation(GlobalScope.mainWindow.getWidth() - 300, GlobalScope.mainWindow.getHeight() - 300);
 		Window.time = 0;
 		//Cube rect = new Cube();
 		//frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
