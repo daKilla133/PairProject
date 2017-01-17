@@ -7,7 +7,7 @@ import Utils.GlobalScope;
 
 public class Graphics3D {
 
-	Buffered3D bf;
+	public Buffered3D bf;
 	public Graphics3D(Buffered3D bf)
 	{
 		this.bf = bf;

@@ -1,11 +1,11 @@
 package Renderer;
 
-import java.awt.BufferCapabilities;
-import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.Random;
 
+import MathLogic.Vec3;
 import WindowFrame.Window;
 
 public class Buffered3D {
@@ -28,12 +28,15 @@ public class Buffered3D {
 	{
 		return img;
 	}
-	public void tFloorGen(int width, int height)
+	public void tFloorGen(int width, int height, Vec3 c)
 	{
+		PerspectiveCamera
 		int[] pixel = new int[width*height];
-		for(int y = 0; y < width; y++)
+		Random r = new Random();
+		for(int i = 0; i < height*width; i++)
 		{
-			
+			pixel[i] = r.nextInt();
 		}
+		pixels = pixel;
 	}
 }

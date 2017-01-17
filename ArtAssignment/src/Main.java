@@ -14,8 +14,7 @@ import Utils.ConsoleWindow;
 import Utils.GlobalScope;
 
 public class Main implements Runnable{
-//	WireFrame frame;
-//	private CoordinateSystem3D c;
+	
 	private boolean run = false;
 	public static void main(String[] args)
 	{
@@ -62,7 +61,7 @@ public class Main implements Runnable{
 		{
 			BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
 			imgGraphics = new Graphics3D(new Buffered3D(img, GlobalScope.mainWindow));
-			
+			imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());;
 //			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
 		
 //			imgGraphics.getGr().drawRect(x, y, 50, 50);
