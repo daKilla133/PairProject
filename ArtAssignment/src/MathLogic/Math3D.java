@@ -48,11 +48,11 @@ public class Math3D
 		xp = finalx / finalz;
 		yp = finaly / finalz;
 		
-		xp = xp * GlobalScope.MAX_W;
-		yp = yp * GlobalScope.MAX_H;
+		xp = xp * GlobalScope.mainWindow.getWidth();
+		yp = yp * GlobalScope.mainWindow.getHeight();
 
-		xp += GlobalScope.MAX_W / 2;
-		yp += GlobalScope.MAX_H / 2;
+		xp += GlobalScope.mainWindow.getWidth() / 2;
+		yp += GlobalScope.mainWindow.getHeight() / 2;
 		
 		return new Vec3(xp, yp, finalz);
 	}

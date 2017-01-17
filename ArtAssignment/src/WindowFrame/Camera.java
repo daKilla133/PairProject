@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import MathLogic.Vec3;
+import Utils.ConsoleWindow;
 import Utils.GlobalScope;
 
 public class Camera implements KeyListener, MouseMotionListener, MouseListener
@@ -15,7 +16,7 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 	public float pitch;
 	public float yaw;
 	public float roll;
-
+	
 	private float sensitivity = 0.005f;
 	private float speed = 1.f;
 
@@ -65,7 +66,17 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 			else fs = true;
 			GlobalScope.mainWindow.setScreen(fs);
 		}
-
+		if(k.getKeyCode() == KeyEvent.VK_Z)
+		{
+			if(ConsoleWindow.ts)
+			{
+				ConsoleWindow.close();
+				ConsoleWindow.ts = false;
+			}
+			else
+			{ConsoleWindow.open();ConsoleWindow.ts = true;}
+		}
+		
 		GlobalScope.inputLock.unlock();
 	}
 

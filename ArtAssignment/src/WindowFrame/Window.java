@@ -15,9 +15,8 @@ public class Window extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(size);
 		setTitle(title);
-		screen = new BufferedImage(size.width, size.height, BufferedImage.TYPE_4BYTE_ABGR);
+		screen = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_RGB);
 		
-		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
 		
 		setResizable(false);
@@ -28,9 +27,8 @@ public class Window extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(width, height);
 		setTitle(title);
-		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 	
-		this.add(new JLabel(new ImageIcon(screen)));
 		setLocationRelativeTo(null);
 		
 		setResizable(false);

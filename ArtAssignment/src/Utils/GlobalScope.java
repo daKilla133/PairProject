@@ -12,6 +12,5 @@ public class GlobalScope {
 	public static ReentrantLock frameBufferLock = new ReentrantLock();
 	public static ReentrantLock inputLock = new ReentrantLock();
 	public static Camera camera = new Camera();
-	public static final int MAX_W = 600;
-	public static final int MAX_H = 600;
+	public static Thread main;
 }
