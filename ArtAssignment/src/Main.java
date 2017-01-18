@@ -61,11 +61,12 @@ public class Main implements Runnable{
 		{
 			BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
 			imgGraphics = new Graphics3D(new Buffered3D(img, GlobalScope.mainWindow));
-			imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());;
-//			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
+			imgGraphics.getGr().clearRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+//			imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
+			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
 		
 //			imgGraphics.getGr().drawRect(x, y, 50, 50);
-//			triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
+			triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
 //			imgGraphics.XRotate((float)Math.PI/3);
 			
 //			Noise n = new Noise(new Random().nextInt());

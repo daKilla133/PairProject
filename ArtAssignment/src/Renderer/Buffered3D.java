@@ -3,6 +3,7 @@ package Renderer;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.awt.image.Raster;
 import java.util.Random;
 
 import MathLogic.Vec3;
@@ -21,7 +22,7 @@ public class Buffered3D {
 			win.createBufferStrategy(3);
 		for(int i = 0; i < win.getHeight() * win.getWidth(); i++)
 		{
-				pixels[i] = 0;
+			pixels[i] = 0;
 		}
 	}
 	public BufferedImage getImg()
@@ -30,7 +31,6 @@ public class Buffered3D {
 	}
 	public void tFloorGen(int width, int height, Vec3 c)
 	{
-		PerspectiveCamera
 		int[] pixel = new int[width*height];
 		Random r = new Random();
 		for(int i = 0; i < height*width; i++)
@@ -38,5 +38,6 @@ public class Buffered3D {
 			pixel[i] = r.nextInt();
 		}
 		pixels = pixel;
+		bs.getDrawGraphics().drawImage(img, width, height, null);
 	}
 }
