@@ -10,23 +10,22 @@ public class Buffered3D {
 		pixels = new int[img.getWidth()*img.getHeight()];
 		Random r = new Random();
 		for(int i = 0; i < pixels.length; i++)
-			pixels[i] = r.nextInt();
-		tFloorGenerate(this, 25, 25);
+			pixels[i] = 500;
 		this.img = img;
 	}
-	public void tFloorGenerate(Buffered3D b, int xOffset, int yOffset)
-	{
-		for(int y = 0; y < img.getHeight(); y++)
+	public void tFloor(Buffered3D b, int xOffset, int yOffset)
+	{	
+		for(int y = 0; y < b.getImg().getHeight(); y++)
 		{
 			int yPix = y + yOffset;
-			if(yPix < 0 || yPix >= b.getImg().getHeight())
+			if(yPix < 0 || yPix >= img.getHeight())
 				continue;
-			for(int x = 0; x < img.getWidth(); x++)
+			for(int x = 0; x < b.getImg().getWidth(); x++)
 			{
 				int xPix = x + xOffset;
 				if(xPix < 0 || xPix >= b.getImg().getWidth())
 					continue;
-				pixels[xPix + yPix*(int)img.getWidth()] = b.pixels[x+y*(int)b.getImg().getWidth()];
+				pixels[xPix + yPix*img.getWidth()] = b.pixels[x+y*(int)b.getImg().getWidth()];
 			}
 		}
 	}

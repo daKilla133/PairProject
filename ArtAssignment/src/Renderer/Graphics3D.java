@@ -30,7 +30,8 @@ public class Graphics3D {
 		Graphics2D g = getGr();
 		g.setBackground(Color.BLACK);
 		g.clearRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
-		g.drawImage(bf.getImg(), 0, 0, 500, 500, null);
+		bf.tFloor(new Buffered3D(bf.getImg().getSubimage(0, 0, 300, 300)), 400, 400);
+		g.drawImage(bf.getImg(), 0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), null);
 		g.dispose();
 		bs.show();
 	}
