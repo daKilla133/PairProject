@@ -1,6 +1,6 @@
-import java.awt.Rectangle;
-//import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Random;
 
 import Geometry.Triangle;
@@ -42,12 +42,14 @@ public class Main implements Runnable{
 		}
 	}
 	private void init() {
-		GlobalScope.mainWindow = new Window(600, 600, "3DTerrain");
+		GlobalScope.mainWindow = new Window(
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
 		GlobalScope.mainWindow.createBufferStrategy(4);
+		ConsoleWindow.init();
+
 		GlobalScope.mainWindow.addKeyListener(GlobalScope.camera);
 		GlobalScope.mainWindow.addMouseListener(GlobalScope.camera);
-		
-		ConsoleWindow.init();
 		Window.time = 0;
 		//Cube rect = new Cube();
 		//frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
@@ -57,28 +59,22 @@ public class Main implements Runnable{
 	{
 		init();
 		Graphics3D imgGraphics;
+		Buffered3D b;
+		b = new Buffered3D(GlobalScope.mainWindow.getBufferedImage());
 		while(run)
 		{
-			BufferedImage img = GlobalScope.mainWindow.getBufferedImage();
-			imgGraphics = new Graphics3D(new Buffered3D(img, GlobalScope.mainWindow));
-			imgGraphics.getGr().clearRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+			imgGraphics = new Graphics3D(b);
+			
 //			imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
-			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
-		
+//			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
+			imgGraphics.render();
 //			imgGraphics.getGr().drawRect(x, y, 50, 50);
-			triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
+//			triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
 //			imgGraphics.XRotate((float)Math.PI/3);
 			
 //			Noise n = new Noise(new Random().nextInt());
 //			int x = (int)(GlobalScope.mainWindow.getWidth()*n.noise(Window.time, 0));
-			GlobalScope.mainWindow.repaint();
-			try {
-				Window.time += .01;
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-				stop();
-			}
+			Window.time += .01;		
 		}
 		stop();
 	}

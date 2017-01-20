@@ -14,7 +14,7 @@ public class ConsoleWindow {
 	public static void init()
 	{
 		GlobalScope.toolbar = new Window(300, 300, "Console");
-		GlobalScope.toolbar.setLocation(GlobalScope.mainWindow.getWidth() + 300, GlobalScope.mainWindow.getHeight() - 300);
+		GlobalScope.toolbar.setLocation(GlobalScope.mainWindow.getWidth() - 300, GlobalScope.mainWindow.getHeight() - 300);
 		JLabel label = new JLabel();
 		label.setLayout(new GridLayout(8, 8));
 

@@ -35,22 +35,5 @@ public class Window extends JFrame{
 		setVisible(true);
 	}
 	public BufferedImage getBufferedImage()
-	{	return screen;	}
-	
-	public void setScreen(boolean full)
-	{
-		if(full)
-		{
-			setExtendedState(JFrame.MAXIMIZED_BOTH); 
-			screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-			this.setContentPane(new JLabel(new ImageIcon(screen)));
-		}
-		else
-		{
-			setExtendedState(JFrame.NORMAL);
-			screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-			this.setContentPane(new JLabel(new ImageIcon(screen)));
-		}
-	}
-	
+	{	return screen;	}	
 }

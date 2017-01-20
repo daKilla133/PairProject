@@ -22,7 +22,6 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 
 	private int lastX;
 	private int lastY;
-	private boolean fs = false;
 	private boolean pressed = false;
 
 	public void setSensitivity(float sensitivity)
@@ -58,13 +57,6 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 		{
 			Vec3 direction = Vec3.matConversion(yaw, pitch, roll, speed);
 			pos.setLocation(pos.getX()-direction.getX(), pos.getY()-direction.getY(), pos.getZ()-direction.getZ());
-		}
-		if(k.getKeyCode() == KeyEvent.VK_SPACE)
-		{
-			if(fs)
-				fs = false;
-			else fs = true;
-			GlobalScope.mainWindow.setScreen(fs);
 		}
 		if(k.getKeyCode() == KeyEvent.VK_Z)
 		{
