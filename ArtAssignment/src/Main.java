@@ -1,5 +1,3 @@
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Random;
 
@@ -14,8 +12,6 @@ import Utils.ConsoleWindow;
 import Utils.GlobalScope;
 
 public class Main implements Runnable{
-	
-	private boolean run = false;
 	public static void main(String[] args)
 	{
 		Main m = new Main();
@@ -41,42 +37,62 @@ public class Main implements Runnable{
 			System.exit(0);
 		}
 	}
-	private void init() {
-		/*GlobalScope.mainWindow = new Window(
+	private void init() 
+	{
+		GlobalScope.mainWindow = new Window(
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
-		*/
-		GlobalScope.mainWindow = new Window(400, 400, "3DTerrain");
+
+		//		GlobalScope.mainWindow = new Window(400, 400, "3DTerrain");
 		GlobalScope.mainWindow.createBufferStrategy(4);
 		ConsoleWindow.init();
 
 		GlobalScope.mainWindow.addKeyListener(GlobalScope.camera);
 		GlobalScope.mainWindow.addMouseListener(GlobalScope.camera);
-		Window.time = 0;
+		Window.time = System.nanoTime();
 		//Cube rect = new Cube();
 		//frame = new WireFrame(rect, ((Graphics2D)win.getBufferStrategy().getDrawGraphics()));
 		//c = new CoordinateSystem3D();
 	}
+
+	private long lastTime;
+	private double fps;
+	private boolean run = false;
+	
+	public double fps()
+	{	return fps;	} 
 	public void run()
 	{
 		init();
+		GlobalScope.frames = fps();
+
 		Graphics3D imgGraphics;
 		Buffered3D b;
 		b = new Buffered3D(GlobalScope.mainWindow.getBufferedImage());
+		imgGraphics = new Graphics3D(b);
+		int i = 0;
 		while(run)
 		{
-			imgGraphics = new Graphics3D(b);
-			
-//			imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
-//			Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
-			imgGraphics.render();
-//			imgGraphics.getGr().drawRect(x, y, 50, 50);
-//			triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
-//			imgGraphics.XRotate((float)Math.PI/3);
-			
-//			Noise n = new Noise(new Random().nextInt());
-//			int x = (int)(GlobalScope.mainWindow.getWidth()*n.noise(Window.time, 0));
-			Window.time += .01;		
+			Window.time = System.nanoTime();
+			i+=10;
+			//	imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
+			//	Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
+			if((25+i) > imgGraphics.bf.getImg().getWidth())
+				i = 0;
+			imgGraphics.render(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+			lastTime = System.nanoTime();
+			try{
+				Thread.sleep(2);
+			}
+			catch (InterruptedException e){}
+			fps = 1000000000.0 / (System.nanoTime() - lastTime); 
+			GlobalScope.frames = fps();
+			lastTime = System.nanoTime();
+			//triangle.render(imgGraphics.getGr(), new Rectangle(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight()));
+
+			//Noise n = new Noise(new Random().nextInt());
+			//int x = (int)(GlobalScope.mainWindow.getWidth()*n.noise(Window.time, 0));
+
 		}
 		stop();
 	}

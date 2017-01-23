@@ -41,7 +41,10 @@ public class ConsoleWindow {
 		}GlobalScope.toolbar.addKeyListener(new KeyType());
 		GlobalScope.toolbar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	public static void run()
+	{
+		
+	}
 	public static void open()
 	{
 		GlobalScope.toolbar.setVisible(true);

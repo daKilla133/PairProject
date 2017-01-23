@@ -12,5 +12,6 @@ public class GlobalScope {
 	public static ReentrantLock frameBufferLock = new ReentrantLock();
 	public static ReentrantLock inputLock = new ReentrantLock();
 	public static Camera camera = new Camera();
+	public static double frames;
 	public static Thread main;
 }

@@ -1,6 +1,7 @@
 package Renderer;
 import java.awt.image.BufferedImage;
-import java.util.Random;
+
+import Utils.GlobalScope;
 
 public class Buffered3D {
 	private BufferedImage img;
@@ -8,24 +9,22 @@ public class Buffered3D {
 	public Buffered3D(BufferedImage img)
 	{
 		pixels = new int[img.getWidth()*img.getHeight()];
-		Random r = new Random();
-		for(int i = 0; i < pixels.length; i++)
-			pixels[i] = 500;
+		/*for(int i = 0; i < pixels.length; i++)
+			pixels[i] = 0;*/
 		this.img = img;
 	}
 	public void tFloor(Buffered3D b, int xOffset, int yOffset)
 	{	
 		for(int y = 0; y < b.getImg().getHeight(); y++)
 		{
-			int yPix = y + yOffset;
-			if(yPix < 0 || yPix >= img.getHeight())
-				continue;
+			double yDepth = (y-b.getImg().getHeight()/2.0)/b.getImg().getHeight();
+			GlobalScope.camera.pos.setZ((float)(2.0/yDepth));
 			for(int x = 0; x < b.getImg().getWidth(); x++)
 			{
-				int xPix = x + xOffset;
-				if(xPix < 0 || xPix >= b.getImg().getWidth())
-					continue;
-				pixels[xPix + yPix*img.getWidth()] = b.pixels[x+y*(int)b.getImg().getWidth()];
+				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
+				xDepth *= GlobalScope.camera.pos.getZ();
+				int xx = (int) xDepth&15;
+				pixels[x+y*b.getImg().getWidth()] = xx+((int)(GlobalScope.camera.pos.getZ())&15)*64;
 			}
 		}
 	}
