@@ -13,7 +13,7 @@ public class Buffered3D {
 			pixels[i] = 0;*/
 		this.img = img;
 	}
-	public void tFloor(Buffered3D b, int xOffset, int yOffset)
+	public void tFloor(Buffered3D b, float time)
 	{	
 		for(int y = 0; y < b.getImg().getHeight(); y++)
 		{
@@ -24,7 +24,7 @@ public class Buffered3D {
 				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
 				xDepth *= GlobalScope.camera.pos.getZ();
 				int xx = (int) xDepth&15;
-				pixels[x+y*b.getImg().getWidth()] = xx+((int)(GlobalScope.camera.pos.getZ())&15)*64;
+				pixels[x+y*b.getImg().getWidth()] = xx+((int)(time+(GlobalScope.camera.pos.getZ()))&15)*64;
 			}
 		}
 	}

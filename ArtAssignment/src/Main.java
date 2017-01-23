@@ -70,16 +70,14 @@ public class Main implements Runnable{
 		Buffered3D b;
 		b = new Buffered3D(GlobalScope.mainWindow.getBufferedImage());
 		imgGraphics = new Graphics3D(b);
-		int i = 0;
+		float i = 0;
 		while(run)
 		{
 			Window.time = System.nanoTime();
-			i+=10;
+			i+=.35;
 			//	imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
 			//	Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
-			if((25+i) > imgGraphics.bf.getImg().getWidth())
-				i = 0;
-			imgGraphics.render(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
+			imgGraphics.render(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(),i);
 			lastTime = System.nanoTime();
 			try{
 				Thread.sleep(2);

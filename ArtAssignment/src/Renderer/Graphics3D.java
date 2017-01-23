@@ -8,6 +8,7 @@ import java.util.Random;
 
 import MathLogic.Math3D;
 import Utils.GlobalScope;
+import WindowFrame.Window;
 
 public class Graphics3D {
 
@@ -23,7 +24,7 @@ public class Graphics3D {
 	}
 	public Graphics2D getGr()
 	{return (Graphics2D)bs.getDrawGraphics();}
-	public void render(int xOffset, int yOffset, int w, int h)
+	public void render(int xOffset, int yOffset, int w, int h, float elapsedTime)
 	{
 		pixels = ((DataBufferInt)bf.getImg().getRaster().getDataBuffer()).getData();
 		for(int i = 0; i < bf.pixels.length; i++)
@@ -32,7 +33,7 @@ public class Graphics3D {
 		g.setBackground(Color.BLACK);
 		g.clearRect(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight());
 		
-		bf.tFloor(new Buffered3D(bf.getImg()), 400, 400);
+		bf.tFloor(new Buffered3D(bf.getImg()), elapsedTime);
 		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
 		g.dispose();
 		bs.show();
