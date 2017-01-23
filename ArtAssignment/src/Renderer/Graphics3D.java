@@ -41,17 +41,17 @@ public class Graphics3D {
 	public void XRotate(float theta)
 	{
 		Math3D.Rotate(GlobalScope.camera.pos, theta, 0, 0);
-		render(50, 50, 25, 25);
+		render(50, 50, 25, 25, .25f);
 		getGr().drawImage(bf.getImg(), 0, 0, bf.getImg().getWidth(), bf.getImg().getHeight(), null);
 	}
 	public void YRotate(float theta)
 	{
 		Math3D.Rotate(GlobalScope.camera.pos, 0, theta, 0);
-		render(50, 50, 25, 25);	
+		render(50, 50, 25, 25, .25f);	
 	}
 	public void ZRotate(float theta)
 	{
 		Math3D.Rotate(GlobalScope.camera.pos, 0, 0, theta);	
-		render(50, 50, 25, 25);
+		render(50, 50, 25, 25, .25f);
 	}
 }

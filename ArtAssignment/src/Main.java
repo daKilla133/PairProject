@@ -39,11 +39,10 @@ public class Main implements Runnable{
 	}
 	private void init() 
 	{
-		GlobalScope.mainWindow = new Window(
+	/*	GlobalScope.mainWindow = new Window(
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
-				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
-
-		//		GlobalScope.mainWindow = new Window(400, 400, "3DTerrain");
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");*/
+		GlobalScope.mainWindow = new Window(200, 200, "3DTerrain");
 		GlobalScope.mainWindow.createBufferStrategy(4);
 		ConsoleWindow.init();
 

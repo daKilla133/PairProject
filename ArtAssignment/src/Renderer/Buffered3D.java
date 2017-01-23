@@ -23,7 +23,7 @@ public class Buffered3D {
 			{
 				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
 				xDepth *= GlobalScope.camera.pos.getZ();
-				int xx = (int) xDepth&15;
+				int xx = (int)xDepth&15;
 				pixels[x+y*b.getImg().getWidth()] = xx+((int)(time+(GlobalScope.camera.pos.getZ()))&15)*64;
 			}
 		}
