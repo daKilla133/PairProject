@@ -39,10 +39,10 @@ public class Main implements Runnable{
 	}
 	private void init() 
 	{
-	/*	GlobalScope.mainWindow = new Window(
+		GlobalScope.mainWindow = new Window(
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
-				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");*/
-		GlobalScope.mainWindow = new Window(200, 200, "3DTerrain");
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
+//		GlobalScope.mainWindow = new Window(200, 200, "3DTerrain");
 		GlobalScope.mainWindow.createBufferStrategy(4);
 		ConsoleWindow.init();
 
@@ -77,11 +77,7 @@ public class Main implements Runnable{
 			//	imgGraphics.bf.tFloorGen(GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(), GlobalScope.camera.pos);
 			//	Triangle triangle = new Triangle(GlobalScope.camera.pos, new Vec3(2,2,5), new Vec3(4,4,4));
 			imgGraphics.render(0, 0, GlobalScope.mainWindow.getWidth(), GlobalScope.mainWindow.getHeight(),i);
-			lastTime = System.nanoTime();
-			try{
-				Thread.sleep(2);
-			}
-			catch (InterruptedException e){}
+			lastTime = Window.time;
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 
 			GlobalScope.frames = fps();
 			lastTime = System.nanoTime();
