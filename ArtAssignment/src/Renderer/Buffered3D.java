@@ -18,16 +18,17 @@ public class Buffered3D {
 		for(int y = 0; y < b.getImg().getHeight(); y++)
 		{
 			double yDepth = (y-b.getImg().getHeight()/2.0)/b.getImg().getHeight();
+
 			yDepth = Math.abs(yDepth);
 			GlobalScope.camera.pos.setZ((float)(4.0/yDepth));	
-			Math.abs(yDepth);
-			
+			Math.abs(yDepth);			
 			for(int x = 0; x < b.getImg().getWidth(); x++)
 			{
 				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
 				xDepth *= GlobalScope.camera.pos.getZ();
-				int xx = (int)(xDepth*GlobalScope.camera.pos.getX()-GlobalScope.camera.pos.getZ());
-				pixels[x+y*b.getImg().getWidth()] = 10&xx+((int)((GlobalScope.camera.pos.getZ()*GlobalScope.camera.pos.getY()))&10)*64;
+				int xx = (int)(xDepth*GlobalScope.camera.pos.getX());
+				int yy = (int)(GlobalScope.camera.pos.getZ()*time)>>5;
+				pixels[x+y*b.getImg().getWidth()] = xx+yy*32;
 			}
 		}
 	}
