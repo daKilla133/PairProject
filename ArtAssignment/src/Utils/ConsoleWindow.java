@@ -17,12 +17,12 @@ public class ConsoleWindow {
 	private static JCheckBox roam;
 	public static void init()
 	{
-		GlobalScope.toolbar = new Window(300, 300, "Console");
-		GlobalScope.toolbar.setLocation(GlobalScope.mainWindow.getWidth() - 300, GlobalScope.mainWindow.getHeight() - 300);
+		Global.toolbar = new Window(300, 300, "Console");
+		Global.toolbar.setLocation(Global.mainWindow.getWidth() - 300, Global.mainWindow.getHeight() - 300);
 		JLabel label = new JLabel();
 		label.setLayout(new GridLayout(8, 8));
 
-		GlobalScope.toolbar.add(label);
+		Global.toolbar.add(label);
 		roam = new JCheckBox("Roam");
 		roam.setToolTipText("Free Scroll");
 		class KeyType implements ActionListener, KeyListener
@@ -49,10 +49,10 @@ public class ConsoleWindow {
 //				if(a.getID()==roam.getAction().);
 			}
 
-		}GlobalScope.toolbar.addKeyListener(new KeyType());
+		}Global.toolbar.addKeyListener(new KeyType());
 		roam.addActionListener(new KeyType());
-		GlobalScope.toolbar.add(roam);
-		GlobalScope.toolbar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Global.toolbar.add(roam);
+		Global.toolbar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public static void run()
 	{
@@ -60,10 +60,10 @@ public class ConsoleWindow {
 	}
 	public static void open()
 	{
-		GlobalScope.toolbar.setVisible(true);
+		Global.toolbar.setVisible(true);
 	}
 	public static void close()
 	{
-		GlobalScope.toolbar.setVisible(false);
+		Global.toolbar.setVisible(false);
 	}
 }

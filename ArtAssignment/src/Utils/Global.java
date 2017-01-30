@@ -6,7 +6,7 @@ import MathLogic.Vec3;
 import WindowFrame.Camera;
 import WindowFrame.Window;
 
-public class GlobalScope {
+public class Global {
 	public static Window mainWindow;
 	public static Window toolbar;
 	public static ReentrantLock frameBufferLock = new ReentrantLock();

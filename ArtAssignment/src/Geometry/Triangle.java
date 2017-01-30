@@ -22,26 +22,5 @@ public class Triangle {
 	
 	public Vec3 getZ()
 	{	return z;	}
-	public void render(Graphics g, Rectangle r)
-	{
-		double xp1 = x.getX() / x.getZ();
-		double yp1 = x.getY() / x.getZ();
-		double xp2 = y.getX() / y.getZ();
-		double yp2 = y.getY() / y.getZ();
-		double xp3 = z.getX() / z.getZ();
-		double yp3 = z.getY() / z.getZ();
-		g.setClip(r);
-		
-		int xx = (int)(xp1 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
-		int yy = (int)(yp1 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
-		int xx2 = (int)(xp2 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
-		int yy2 = (int)(yp2 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
-		int xx3 = (int)(xp3 * (g.getClipBounds().width / 2)) + g.getClipBounds().width / 2;
-		int yy3 = (int)(yp3 * (g.getClipBounds().height / 2)) + g.getClipBounds().height / 2;
 
-		g.setColor(Color.white);
-		g.drawLine(xx, yy, xx3, yy3);
-		g.drawLine(xx, yy, -xx3, yy3);
-		
-	}
 }

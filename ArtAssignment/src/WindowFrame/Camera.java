@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 
 import MathLogic.Vec3;
 import Utils.ConsoleWindow;
-import Utils.GlobalScope;
+import Utils.Global;
 
 public class Camera implements KeyListener, MouseMotionListener, MouseListener
 {
@@ -36,7 +36,7 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 
 	public void keyPressed(KeyEvent k) 
 	{
-		GlobalScope.inputLock.lock();
+		Global.inputLock.lock();
 		if(k.getKeyCode() == KeyEvent.VK_A)
 		{
 			Vec3 direction = Vec3.matConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
@@ -69,7 +69,7 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 			{ConsoleWindow.open();ConsoleWindow.ts = true;}
 		}
 		
-		GlobalScope.inputLock.unlock();
+		Global.inputLock.unlock();
 	}
 
 	public void keyReleased(KeyEvent k) {}
@@ -84,15 +84,15 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener
 			lastX = e.getXOnScreen();
 			lastY = e.getYOnScreen();
 		}
-		GlobalScope.inputLock.lock();
+		Global.inputLock.lock();
 		pitch += (float)(e.getYOnScreen() - lastY) * sensitivity;
 		yaw -= (float)(e.getXOnScreen() - lastX) * sensitivity;
 		if(pitch < -(Math.PI / 2.f))
-			GlobalScope.camera.pitch = (float) (-Math.PI / 2.f);
+			Global.camera.pitch = (float) (-Math.PI / 2.f);
 		if(pitch > (Math.PI / 2.f))
 			pitch = (float) (Math.PI / 2.f);
 
-		GlobalScope.inputLock.unlock();
+		Global.inputLock.unlock();
 		lastX = e.getXOnScreen();
 		lastY = e.getYOnScreen();
 	}

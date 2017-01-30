@@ -6,7 +6,7 @@ public class Noise {
 	/**
 	 * @author adam kelemen
 	 * Standard Implementation Of simplex noise 
-	 * Which is happily given to us by Oracle to freely use
+	 * Which is happily given to use by Oracle
 	 * Not my code but a example of a better looking map, I TAKE NO RESPONSIBILITY FOR THIS CLASS
 	 */
 	public static int RANDOMSEED=0;

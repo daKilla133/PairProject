@@ -1,6 +1,6 @@
 package MathLogic;
 
-import Utils.GlobalScope;
+import Utils.Global;
 
 public class Math3D 
 {
@@ -27,12 +27,12 @@ public class Math3D
 	public static Vec3 Perspective(Vec3 c)
 	{
 		float x, y, z, xp, yp;
-		x = (float)(c.getX() - GlobalScope.camera.pos.getX());
-		y = (float)(c.getY() - GlobalScope.camera.pos.getY());
-		z = (float)(c.getZ() - GlobalScope.camera.pos.getZ());
+		x = (float)(c.getX() - Global.camera.pos.getX());
+		y = (float)(c.getY() - Global.camera.pos.getY());
+		z = (float)(c.getZ() - Global.camera.pos.getZ());
 		
-		float yaw = GlobalScope.camera.yaw;
-		float pitch = GlobalScope.camera.pitch;
+		float yaw = Global.camera.yaw;
+		float pitch = Global.camera.pitch;
 		
 		float finalx = (x * (float)(Math.cos(yaw)) + 
 				(z * (float)(Math.sin(yaw))));
@@ -48,11 +48,11 @@ public class Math3D
 		xp = finalx / finalz;
 		yp = finaly / finalz;
 		
-		xp = xp * GlobalScope.mainWindow.getWidth();
-		yp = yp * GlobalScope.mainWindow.getHeight();
+		xp = xp * Global.mainWindow.getWidth();
+		yp = yp * Global.mainWindow.getHeight();
 
-		xp += GlobalScope.mainWindow.getWidth() / 2;
-		yp += GlobalScope.mainWindow.getHeight() / 2;
+		xp += Global.mainWindow.getWidth() / 2;
+		yp += Global.mainWindow.getHeight() / 2;
 		
 		return new Vec3(xp, yp, finalz);
 	}
