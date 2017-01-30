@@ -3,8 +3,10 @@ package Geometry;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import MathLogic.Vec3;
+import Renderer.Buffered3D;
 
 public class Triangle {
 	private Vec3 x, y, z; 
@@ -22,5 +24,11 @@ public class Triangle {
 	
 	public Vec3 getZ()
 	{	return z;	}
+	public Buffered3D render()
+	{
+		Buffered3D b = new Buffered3D(new BufferedImage(3, 3, 3));
+//		b.addLine(xx, yy, xx2, yy2);
+		return b;
+	}
 
 }

@@ -41,10 +41,10 @@ public class Main implements Runnable{
 	}
 	private void init() 
 	{
-		Global.mainWindow = new Window(
+		/*Global.mainWindow = new Window(
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
-				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
-//		GlobalScope.mainWindow = new Window(300, 300, "3DTerrain");
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");*/
+		Global.mainWindow = new Window(300, 300, "3DTerrain");
 		Global.mainWindow.createBufferStrategy(4);
 		//ConsoleWindow.init();
 
@@ -81,7 +81,7 @@ public class Main implements Runnable{
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 
 			Global.frames = fps();
 			lastTime = System.nanoTime();
-//			t.render(imgGraphics.getGr(), new Rectangle(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight()));
+			//t.render(imgGraphics.getGr(), new Rectangle(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight()));
 			//Noise n = new Noise(new Random().nextInt());
 			//int x = (int)(GlobalScope.mainWindow.getWidth()*n.noise(Window.time, 0));
 
