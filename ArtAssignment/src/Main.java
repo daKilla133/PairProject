@@ -6,6 +6,8 @@ import java.util.Random;
 import Geometry.Triangle;
 import MathLogic.Noise;
 import MathLogic.Vec3;
+import Renderer.Buffered3D;
+import Renderer.Graphics3D;
 import WindowFrame.Window;
 import Utils.ConsoleWindow;
 import Utils.Global;
@@ -61,18 +63,15 @@ public class Main implements Runnable{
 		init();
 		Global.frames = fps();
 
-		Graphics2D imgGraphics = (Graphics2D)Global.mainWindow.getBufferedImage().getGraphics();
-//		Buffered3D b;
-//		b = new Buffered3D(Global.mainWindow.getBufferedImage());
-//		imgGraphics = new Graphics3D(b);
+		Graphics3D imgGraphics;
+		Buffered3D b;
+		b = new Buffered3D(Global.mainWindow.getBufferedImage());
+		imgGraphics = new Graphics3D(b);
+		float time = 0;
 		while(run)
 		{
 			Window.time = System.nanoTime();
-			Triangle t = new Triangle(new Vec3(2,1,2), new Vec3(2,3,2), new Vec3(2,2,2));
-			imgGraphics.drawLine(1440/2, 675/2, 1440/2, 1125/2);
-			imgGraphics.drawLine(1440/2, 1125/2, 1440/2, 900/2);
-			imgGraphics.drawLine(1440/2, 900/2, 1440/2, 675/2);
-			
+			imgGraphics.render(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight(), time);
 //			t.render(imgGraphics, new Rectangle(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight()));
 			lastTime = Window.time;
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 

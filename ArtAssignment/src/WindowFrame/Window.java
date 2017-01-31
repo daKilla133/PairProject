@@ -2,9 +2,7 @@ package WindowFrame;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -16,7 +14,6 @@ public class Window extends JFrame{
 		setSize(size);
 		setTitle(title);
 		screen = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_RGB);
-		add(new JLabel(new ImageIcon(screen)));
 		
 		setLocationRelativeTo(null);
 		
@@ -29,7 +26,6 @@ public class Window extends JFrame{
 		setSize(width, height);
 		setTitle(title);
 		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-		add(new JLabel(new ImageIcon(screen)));
 				
 		setLocationRelativeTo(null);
 		

@@ -2,8 +2,6 @@ package Renderer;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import Geometry.Triangle;
-import MathLogic.Vec3;
 import Utils.Global;
 
 public class Buffered3D {
@@ -22,7 +20,7 @@ public class Buffered3D {
 			{
 //				int xx = (int)(Global.camera.pos.getX() / Global.camera.pos.getZ());
 //				int yy = (int)(Global.camera.pos.getY() / Global.camera.pos.getZ());
-//				pixels[x+y*b.getImg().getWidth()] = 156;
+				pixels[x+y*b.getImg().getWidth()] = 156;
 			}
 		}
 		/*for(int y = 0; y < b.getImg().getHeight(); y++)
@@ -41,26 +39,6 @@ public class Buffered3D {
 				pixels[x+y*b.getImg().getWidth()] = (xx+yy*32)&34;
 			}
 		}*/
-	}
-	public void addLine(int x, int y, int xx, int yy, Color c)
-	{
-		if(x<0||xx<0||y<0||yy<0)
-			return;
-		if(x > xx)
-		{
-			int temp = x;
-			x = xx;
-			xx = temp;
-		}
-		if(y > yy)
-		{
-			int temp = y;
-			y = yy;
-			yy = temp;
-		}
-		for(int j = y; j < yy;)
-			for(int i = x; i < xx; i ++, j++)
-				pixels[i + j*img.getWidth()] = c.getRGB(); 
 	}
 	public BufferedImage getImg()
 	{

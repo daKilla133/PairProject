@@ -32,12 +32,9 @@ public class Graphics3D {
 		Graphics2D g = getGr();
 		g.setBackground(Color.BLACK);
 		g.clearRect(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight());
-	
-
-		Triangle t = new Triangle(new Vec3(2,2,0),new Vec3(1,1,0), new Vec3(0,0,0));
 		
-//		bf.tFloor(new Buffered3D(bf.getImg()), elapsedTime);
-//		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
+		bf.tFloor(new Buffered3D(bf.getImg()), elapsedTime);
+		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
 		g.dispose();
 		bs.show();
 	}
