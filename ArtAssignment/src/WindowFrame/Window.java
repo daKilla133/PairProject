@@ -16,6 +16,7 @@ public class Window extends JFrame{
 		setSize(size);
 		setTitle(title);
 		screen = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_RGB);
+		add(new JLabel(new ImageIcon(screen)));
 		
 		setLocationRelativeTo(null);
 		
@@ -28,7 +29,8 @@ public class Window extends JFrame{
 		setSize(width, height);
 		setTitle(title);
 		screen = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-	
+		add(new JLabel(new ImageIcon(screen)));
+				
 		setLocationRelativeTo(null);
 		
 		setResizable(false);

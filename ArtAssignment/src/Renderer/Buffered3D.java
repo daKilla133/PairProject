@@ -22,7 +22,6 @@ public class Buffered3D {
 			{
 //				int xx = (int)(Global.camera.pos.getX() / Global.camera.pos.getZ());
 //				int yy = (int)(Global.camera.pos.getY() / Global.camera.pos.getZ());
-				Tri3D(new Vec3(), new Vec3(), new Vec3(), Color.MAGENTA);
 //				pixels[x+y*b.getImg().getWidth()] = 156;
 			}
 		}
@@ -43,8 +42,10 @@ public class Buffered3D {
 			}
 		}*/
 	}
-	private void addLine(int x, int y, int xx, int yy, Color c)
+	public void addLine(int x, int y, int xx, int yy, Color c)
 	{
+		if(x<0||xx<0||y<0||yy<0)
+			return;
 		if(x > xx)
 		{
 			int temp = x;
@@ -60,12 +61,6 @@ public class Buffered3D {
 		for(int j = y; j < yy;)
 			for(int i = x; i < xx; i ++, j++)
 				pixels[i + j*img.getWidth()] = c.getRGB(); 
-		//Template generated for reference.
-	}
-	public void Tri3D(Vec3 p1, Vec3 p2, Vec3 p3, Color c)
-	{
-		addLine(5, 5, 125, 125, c);
-		//get z depth by home alg.
 	}
 	public BufferedImage getImg()
 	{
