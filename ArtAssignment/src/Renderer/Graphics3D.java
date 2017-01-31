@@ -35,6 +35,7 @@ public class Graphics3D {
 		
 		bf.tFloor(new Buffered3D(bf.getImg()), elapsedTime);
 		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
+//		g.drawImage();
 		g.dispose();
 		bs.show();
 	}

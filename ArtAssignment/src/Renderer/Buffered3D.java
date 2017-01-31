@@ -14,16 +14,7 @@ public class Buffered3D {
 	}
 	public void tFloor(Buffered3D b, float time)
 	{	
-		for(int y = b.getImg().getHeight()/2; y < b.getImg().getHeight(); y++)
-		{
-			for(int x = 0; x < b.getImg().getWidth(); x++)
-			{
-//				int xx = (int)(Global.camera.pos.getX() / Global.camera.pos.getZ());
-//				int yy = (int)(Global.camera.pos.getY() / Global.camera.pos.getZ());
-				pixels[x+y*b.getImg().getWidth()] = 156;
-			}
-		}
-		/*for(int y = 0; y < b.getImg().getHeight(); y++)
+		for(int y =  0; y < b.getImg().getHeight(); y++)
 		{
 			double yDepth = (y-b.getImg().getHeight()/2.0)/b.getImg().getHeight();
 
@@ -34,11 +25,13 @@ public class Buffered3D {
 			{
 				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
 				xDepth *= Global.camera.pos.getZ();
-				int xx = (int)(xDepth*Global.camera.pos.getX()*Math.cos(time/100)+Global.camera.pos.getZ()*Math.sin(time/100));
-				int yy = (int)(-Global.camera.pos.getZ()*Math.sin(time/100)+xDepth*Global.camera.pos.getX()*Math.cos(time/100));
-				pixels[x+y*b.getImg().getWidth()] = (xx+yy*32)&34;
+//				int xx = (int)(xDepth*Global.camera.pos.getX()*Math.cos(time/100)+Global.camera.pos.getZ()*Math.sin(time/100));
+				int xx = (int)(xDepth*Global.camera.pos.getX() +Global.camera.pos.getZ());
+				int yy = (int)(yDepth*Global.camera.pos.getY() +Global.camera.pos.getZ());
+//				int yy = (int)(-Global.camera.pos.getZ()*Math.sin(time/100)+xDepth*Global.camera.pos.getX()*Math.cos(time/100));
+				pixels[x+y*b.getImg().getWidth()] = (xx+yy*22);
 			}
-		}*/
+		}
 	}
 	public BufferedImage getImg()
 	{
