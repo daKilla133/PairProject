@@ -1,114 +1,61 @@
 package WindowFrame;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import MathLogic.Vec3;
-import Utils.ConsoleWindow;
-import Utils.Global;
+public class Camera implements KeyListener, MouseMotionListener, MouseListener, FocusListener {
 
-public class Camera implements KeyListener, MouseMotionListener, MouseListener
-{
-	public Vec3 pos = new Vec3();
-	public float pitch;
-	public float yaw;
-	public float roll;
+	public boolean[] key = new boolean[68836];
+	public boolean[] mInput = new boolean[2];
 	
-	private float sensitivity = 0.005f;
-	private float speed = 1.f;
-
-	private int lastX;
-	private int lastY;
-	private boolean pressed = false;
-
-	public void setSensitivity(float sensitivity)
-	{
-		this.sensitivity = sensitivity;
-	}
-
-	public void setSpeed(float speed)
-	{
-		this.speed = speed;
-	}
-
-	public void keyPressed(KeyEvent k) 
-	{
-		Global.inputLock.lock();
-		if(k.getKeyCode() == KeyEvent.VK_A)
-		{
-			Vec3 direction = Vec3.matConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
-			pos.setLocation(pos.getX()+direction.getX(), pos.getY()+direction.getY(), pos.getZ()+direction.getZ());
-		}
-		if(k.getKeyCode() == KeyEvent.VK_D)
-		{
-			Vec3 direction = Vec3.matConversion(yaw + (float)(Math.PI / 2.f), 0, roll, speed);
-			pos.setLocation(pos.getX()-direction.getX(), pos.getY()-direction.getY(), pos.getZ()-direction.getZ());
-
-		}
-		if(k.getKeyCode() == KeyEvent.VK_W)
-		{
-			Vec3 direction =  Vec3.matConversion(yaw, pitch, roll, speed);
-			pos.setLocation(pos.getX()+direction.getX(), pos.getY()+direction.getY(), pos.getZ()+direction.getZ());
-		}
-		if(k.getKeyCode() == KeyEvent.VK_S)
-		{
-			Vec3 direction = Vec3.matConversion(yaw, pitch, roll, speed);
-			pos.setLocation(pos.getX()-direction.getX(), pos.getY()-direction.getY(), pos.getZ()-direction.getZ());
-		}
-		if(k.getKeyCode() == KeyEvent.VK_Z)
-		{
-			if(ConsoleWindow.ts)
-			{
-				ConsoleWindow.close();
-				ConsoleWindow.ts = false;
-			}
-			else
-			{ConsoleWindow.open();ConsoleWindow.ts = true;}
-		}
-		
-		Global.inputLock.unlock();
-	}
-
-	public void keyReleased(KeyEvent k) {}
-
-	public void keyTyped(KeyEvent k) {}
-
-	public void mouseDragged(MouseEvent e) 
-	{
-		if(pressed)
-		{
-			pressed = false;
-			lastX = e.getXOnScreen();
-			lastY = e.getYOnScreen();
-		}
-		Global.inputLock.lock();
-		pitch += (float)(e.getYOnScreen() - lastY) * sensitivity;
-		yaw -= (float)(e.getXOnScreen() - lastX) * sensitivity;
-		if(pitch < -(Math.PI / 2.f))
-			Global.camera.pitch = (float) (-Math.PI / 2.f);
-		if(pitch > (Math.PI / 2.f))
-			pitch = (float) (Math.PI / 2.f);
-
-		Global.inputLock.unlock();
-		lastX = e.getXOnScreen();
-		lastY = e.getYOnScreen();
-	}
-
-	public void mouseMoved(MouseEvent e) {}
-
 	public void mouseClicked(MouseEvent e) {}
 
+	
 	public void mouseEntered(MouseEvent e) {}
 
+	
 	public void mouseExited(MouseEvent e) {}
 
+	
+	public void mousePressed(MouseEvent e) {}
+
+	
 	public void mouseReleased(MouseEvent e) {}
 
-	public void mousePressed(MouseEvent e) 
+	
+	public void mouseDragged(MouseEvent e) {}
+
+	
+	public void mouseMoved(MouseEvent e) {}
+
+	
+	public void keyPressed(KeyEvent e) 
 	{
-		pressed = true;
+		int keyCode = e.getKeyCode();
+		if(keyCode > 0 && keyCode < key.length)
+			key[keyCode] = true;
 	}
+	public void keyReleased(KeyEvent e) 
+	{
+		int keyCode = e.getKeyCode();
+		if(keyCode > 0 && keyCode < key.length)
+			key[keyCode] = false;
+	}	
+	public void keyTyped(KeyEvent e) {}
+
+	public void focusGained(FocusEvent e) {}
+
+	public void focusLost(FocusEvent e) 
+	{
+		for(boolean k : key)
+			k = false;
+		for(boolean m: mInput)
+			m = false;
+	}
+
 }

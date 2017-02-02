@@ -1,11 +1,6 @@
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.util.Random;
 
-import Geometry.Triangle;
-import MathLogic.Noise;
-import MathLogic.Vec3;
+import java.awt.Toolkit;
+
 import Renderer.Buffered3D;
 import Renderer.Graphics3D;
 import WindowFrame.Window;
@@ -40,14 +35,15 @@ public class Main implements Runnable{
 	}
 	private void init() 
 	{
-		/*Global.mainWindow = new Window(
+		Global.mainWindow = new Window(
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
-				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");*/
-		Global.mainWindow = new Window(300, 300, "3DTerrain");
+				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
+//		Global.mainWindow = new Window(300, 300, "3DTerrain");
 		Global.mainWindow.createBufferStrategy(4);
 		//ConsoleWindow.init();
 
 		Global.mainWindow.addKeyListener(Global.camera);
+		Global.mainWindow.addMouseMotionListener(Global.camera);
 		Global.mainWindow.addMouseListener(Global.camera);
 		Window.time = System.nanoTime();
 	}
@@ -71,14 +67,12 @@ public class Main implements Runnable{
 		while(run)
 		{
 			Window.time = System.nanoTime();
-			imgGraphics.render( Global.mainWindow.getWidth()/2, Global.mainWindow.getHeight()/2, Global.mainWindow.getWidth(), Global.mainWindow.getHeight(), time);
-//			t.render(imgGraphics, new Rectangle(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight()));
+			Global.player.tick(Global.camera.key, Global.camera.mInput);
+			imgGraphics.render(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight(), time);
 			lastTime = Window.time;
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 
 			Global.frames = fps();
 			lastTime = System.nanoTime();
-			//Noise n = new Noise(new Random().nextInt());
-			//int x = (int)(GlobalScope.mainWindow.getWidth()*n.noise(Window.time, 0));
 		}
 		stop();
 	}

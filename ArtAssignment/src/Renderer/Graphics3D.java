@@ -2,12 +2,9 @@ package Renderer;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import java.awt.image.DataBufferInt;
 
-import Geometry.Triangle;
-import MathLogic.Vec3;
 import Utils.Global;
 
 public class Graphics3D {
@@ -33,7 +30,7 @@ public class Graphics3D {
 		g.setBackground(Color.BLACK);
 		g.clearRect(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight());
 		
-		bf.tFloor(new Buffered3D(bf.getImg()), elapsedTime);
+		bf.gFloor(new Buffered3D(bf.getImg()), elapsedTime);
 		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
 //		g.drawImage();
 		g.dispose();

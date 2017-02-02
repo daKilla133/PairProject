@@ -54,10 +54,6 @@ public class ConsoleWindow {
 		Global.toolbar.add(roam);
 		Global.toolbar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	public static void run()
-	{
-		
-	}
 	public static void open()
 	{
 		Global.toolbar.setVisible(true);
