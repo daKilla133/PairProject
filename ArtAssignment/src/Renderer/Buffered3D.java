@@ -31,7 +31,7 @@ public class Buffered3D {
 				double yy = z*Math.cos(rotation)-xDepth*Math.sin(rotation);
 				int xPix = (int)(xx+right);
 				int yPix = (int)(yy+forward);
-				pixels[x+y*b.getImg().getWidth()] = ((xPix&15)*16|(yPix&15)*16)>>2;
+				pixels[x+y*b.getImg().getWidth()] = ((xPix&15)*16|(yPix&15)*16)>>1;
 			}
 		}
 	}

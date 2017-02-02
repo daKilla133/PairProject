@@ -4,26 +4,26 @@ import java.awt.event.KeyEvent;
 
 public class Entity {
 	public float xCom, yCom, zCom;
-	public float pX, pY, pZ, rotation, pRotation;
+	public float pX, pZ, rotation, pRotation;
 	private Math3D m;
 	public Entity(){
 		m = new Math3D();
 	}
-	public void tick(boolean[] key, boolean[] mInput)
+	public void tick(boolean[] key)
 	{
-		m.tick(key, mInput);
+		m.tick(key);
 	}
 	private class Math3D
 	{
-		public void tick(boolean[] key, boolean[] mouseInput)
+		public void tick(boolean[] key)
 		{
 			boolean forward = key[KeyEvent.VK_W];
 			boolean back = key[KeyEvent.VK_S];
 			boolean left = key[KeyEvent.VK_A];
 			boolean right = key[KeyEvent.VK_D];
 			boolean jump = key[KeyEvent.VK_SPACE];
-			boolean mL = mouseInput[1];
-			boolean mR = mouseInput[1];
+			boolean mL = key[KeyEvent.VK_LEFT];
+			boolean mR = key[KeyEvent.VK_RIGHT];
 			move(forward, back, left, right, mL, mR, jump);
 		}
 		private void move(boolean forward, boolean back, boolean left, boolean right, boolean mDragLeft, boolean mDragRight, boolean jump)
@@ -32,7 +32,6 @@ public class Entity {
 			float walkSpeed = 2;
 			float x = 0;
 			float z = 0;
-//			float y = 0;
 			if(forward)
 				z++;
 			if(back)
@@ -51,7 +50,6 @@ public class Entity {
 			
 			xCom += pX;
 			zCom += pZ;
-//			yCom += pY;
 			pX *= .1f;
 			pZ *= .1f;
 			

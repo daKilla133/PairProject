@@ -4,7 +4,6 @@ import java.awt.Toolkit;
 import Renderer.Buffered3D;
 import Renderer.Graphics3D;
 import WindowFrame.Window;
-import Utils.ConsoleWindow;
 import Utils.Global;
 
 public class Main implements Runnable{
@@ -40,7 +39,6 @@ public class Main implements Runnable{
 				(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight(),"3DTerrain");
 //		Global.mainWindow = new Window(300, 300, "3DTerrain");
 		Global.mainWindow.createBufferStrategy(4);
-		//ConsoleWindow.init();
 
 		Global.mainWindow.addKeyListener(Global.camera);
 		Global.mainWindow.addMouseMotionListener(Global.camera);
@@ -67,7 +65,7 @@ public class Main implements Runnable{
 		while(run)
 		{
 			Window.time = System.nanoTime();
-			Global.player.tick(Global.camera.key, Global.camera.mInput);
+			Global.player.tick(Global.camera.key);
 			imgGraphics.render(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight(), time);
 			lastTime = Window.time;
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 

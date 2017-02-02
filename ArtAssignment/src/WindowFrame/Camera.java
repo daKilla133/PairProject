@@ -11,7 +11,6 @@ import java.awt.event.MouseMotionListener;
 public class Camera implements KeyListener, MouseMotionListener, MouseListener, FocusListener {
 
 	public boolean[] key = new boolean[68836];
-	public boolean[] mInput = new boolean[2];
 	
 	public void mouseClicked(MouseEvent e) {}
 
@@ -28,7 +27,8 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener, 
 	public void mouseReleased(MouseEvent e) {}
 
 	
-	public void mouseDragged(MouseEvent e) {}
+	public void mouseDragged(MouseEvent e) {
+	}
 
 	
 	public void mouseMoved(MouseEvent e) {}
@@ -54,8 +54,6 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener, 
 	{
 		for(boolean k : key)
 			k = false;
-		for(boolean m: mInput)
-			m = false;
 	}
 
 }
