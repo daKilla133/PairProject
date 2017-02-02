@@ -16,7 +16,6 @@ public class Buffered3D {
 		float floorP = 8;
 		float forward = Global.player.zCom;
 		float right = Global.player.xCom;
-		
 		float rotation = Global.player.rotation;
 		
 		for(int y = b.getImg().getHeight()/2; y < b.getImg().getHeight(); y++)
