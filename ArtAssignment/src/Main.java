@@ -71,6 +71,7 @@ public class Main implements Runnable{
 			fps = 1000000000.0 / (System.nanoTime() - lastTime); 
 			Global.frames = fps();
 			lastTime = System.nanoTime();
+			System.out.println(fps);
 		}
 		stop();
 	}

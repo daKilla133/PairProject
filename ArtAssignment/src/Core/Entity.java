@@ -41,9 +41,9 @@ public class Entity {
 			if(right)
 				x++;
 			if(mDragLeft)
-				pRotation += rotationSpeed;
-			if(mDragRight)
 				pRotation -= rotationSpeed;
+			if(mDragRight)
+				pRotation += rotationSpeed;
 
 			pX = (float) (walkSpeed*(x*Math.cos(rotation)+z*Math.sin(rotation)));
 			pZ = (float) (walkSpeed*(z*Math.cos(rotation)-x*Math.sin(rotation)));
