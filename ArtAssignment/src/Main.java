@@ -61,6 +61,7 @@ public class Main implements Runnable{
 		Buffered3D b;
 		b = new Buffered3D(Global.mainWindow.getBufferedImage());
 		imgGraphics = new Graphics3D(b);
+//		imgGraphics.getGr().drawImage(b.drawSky("res/sky.jpg"), 0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight(), null);
 		float time = 0;
 		while(run)
 		{

@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 
 public class Entity {
 	public float xCom, yCom, zCom;
-	public float pX, pZ, pY, rotation, pRotation;
+	public float pX, pZ, rotation, pRotation;
 	private Math3D m;
 	public Entity(){
 		m = new Math3D();
@@ -32,8 +32,6 @@ public class Entity {
 			float walkSpeed = 2;
 			float x = 0;
 			float z = 0;
-			float y = 0;
-			float gravity = 1;
 			if(forward)
 				z++;
 			if(back)
@@ -42,8 +40,6 @@ public class Entity {
 				x--;
 			if(right)
 				x++;
-			if(jump)
-				y++;
 			if(mDragLeft)
 				pRotation -= rotationSpeed;
 			if(mDragRight)
@@ -51,11 +47,8 @@ public class Entity {
 
 			pX = (float) (walkSpeed*(x*Math.cos(rotation)+z*Math.sin(rotation)));
 			pZ = (float) (walkSpeed*(z*Math.cos(rotation)-x*Math.sin(rotation)));
-			pY = (float) (-gravity*(y*Math.cos(rotation)-y*Math.sin(rotation)));
 			xCom += pX;
-			yCom += pY;
 			zCom += pZ;
-			pY *= .1f;
 			pX *= .1f;
 			pZ *= .1f;
 			

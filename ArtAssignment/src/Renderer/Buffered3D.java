@@ -1,5 +1,9 @@
 package Renderer;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import Utils.Global;
 
@@ -36,6 +40,16 @@ public class Buffered3D {
 				pixels[x+y*b.getImg().getWidth()] = ((xPix&15)*16|(yPix&15)*16)|6;
 			}
 		}
+	}
+	public BufferedImage drawSky(String filePath)
+	{
+		BufferedImage b = null;
+		try {
+			b = (ImageIO.read(new File(filePath)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		return b;
 	}
 	public BufferedImage getImg()
 	{

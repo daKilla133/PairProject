@@ -31,6 +31,7 @@ public class Graphics3D {
 		g.clearRect(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight());
 		bf.gFloor(new Buffered3D(bf.getImg()), elapsedTime);
 		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
+		g.drawImage(bf.drawSky("res/sky.jpg"), 0, 0, w, h/2, null);
 //		g.drawImage();
 		g.dispose();
 		bs.show();

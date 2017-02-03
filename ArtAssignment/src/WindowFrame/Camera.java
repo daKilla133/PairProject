@@ -52,8 +52,8 @@ public class Camera implements KeyListener, MouseMotionListener, MouseListener, 
 
 	public void focusLost(FocusEvent e) 
 	{
-		for(boolean k : key)
-			k = false;
+		for(int i = 0; i < key.length; i++)
+			key[i] = false;
 	}
 
 }
