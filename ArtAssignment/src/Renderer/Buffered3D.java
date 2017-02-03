@@ -13,10 +13,12 @@ public class Buffered3D {
 	}
 	public void gFloor(Buffered3D b, float time)
 	{	
-		float floorP = 8;
+		float floorP = 10;
 		float forward = Global.player.zCom;
 		float right = Global.player.xCom;
 		float rotation = Global.player.rotation;
+		double cosine = Math.cos(rotation);
+		double sine = Math.sin(rotation);
 		
 		for(int y = b.getImg().getHeight()/2; y < b.getImg().getHeight(); y++)
 		{
@@ -27,11 +29,11 @@ public class Buffered3D {
 			{
 				double xDepth = (x-b.getImg().getWidth()/2.0)/b.getImg().getHeight();
 				xDepth *= z;
-				double xx = xDepth*Math.cos(rotation)+z*Math.sin(rotation);
-				double yy = z*Math.cos(rotation)-xDepth*Math.sin(rotation);
+				double xx = xDepth*cosine+z*sine;
+				double yy = z*cosine - xDepth*sine;
 				int xPix = (int)(xx+right);
 				int yPix = (int)(yy+forward);
-				pixels[x+y*b.getImg().getWidth()] = ((xPix&15)*16|(yPix&15)*16)>>2;
+				pixels[x+y*b.getImg().getWidth()] = ((xPix&15)*16|(yPix&15)*16)|6;
 			}
 		}
 	}

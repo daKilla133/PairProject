@@ -29,7 +29,6 @@ public class Graphics3D {
 		Graphics2D g = getGr();
 		g.setBackground(Color.BLACK);
 		g.clearRect(0, 0, Global.mainWindow.getWidth(), Global.mainWindow.getHeight());
-		
 		bf.gFloor(new Buffered3D(bf.getImg()), elapsedTime);
 		g.drawImage(bf.getImg(), xOffset, yOffset, w, h, null);
 //		g.drawImage();
